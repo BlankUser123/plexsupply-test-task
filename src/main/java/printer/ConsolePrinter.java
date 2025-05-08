@@ -1,16 +1,18 @@
 package printer;
 
 import calculator.FactorialCalculator;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ConsolePrinter implements Printer {
 
     @Override
     public void print(Object element) {
         if (element instanceof String) {
-            System.out.println(element);
+            log.info(String.valueOf(element));
             return;
         }
 
-        System.out.println(element + " = " + new FactorialCalculator().calculate((Integer) element));
+        log.info("{} = {}", element, new FactorialCalculator().calculate((Integer) element));
     }
 }
