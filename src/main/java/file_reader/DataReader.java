@@ -21,8 +21,7 @@ public class DataReader implements FileReader, Closeable {
     @Override
     public Object[] read() {
         Object[] result;
-        InputStream resource = DataReader.class.getResourceAsStream(DATA);
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(resource)))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(DataReader.class.getResourceAsStream(DATA))))) {
             Object[] data = reader
                     .lines()
                     .map(line -> {
