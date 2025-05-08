@@ -1,6 +1,8 @@
 package calculator;
 
+import java.math.BigInteger;
+
 public interface Calculator {
 
-    int calculate(int number);
+    BigInteger calculate(int number);
 }

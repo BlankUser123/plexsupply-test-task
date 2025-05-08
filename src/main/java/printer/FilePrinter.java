@@ -36,6 +36,7 @@ public class FilePrinter implements Printer {
         }
     }
 
+    @Override
     public void close() {
         try {
             writer.close();

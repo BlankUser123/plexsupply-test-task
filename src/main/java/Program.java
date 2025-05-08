@@ -3,6 +3,9 @@ import executor.SequencedThreadPoolExecutor;
 import file_reader.DataReader;
 import printer.ConsolePrinter;
 import printer.FilePrinter;
+import printer.Printer;
+import rate_limiter.RateLimiter;
+import rate_limiter.RateLimiterImpl;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -26,20 +29,16 @@ public class Program {
             inputService.shutdown();
         }
 
+        RateLimiter limiter = new RateLimiterImpl(100);
         try (SequencedThreadPoolExecutor outputService = new SequencedThreadPoolExecutor(threadCount)) {
 
             try {
-                FilePrinter printer = new FilePrinter();
+                Printer printer = new ConsolePrinter();
 
                 for (Object element : futureData.get()) {
                     outputService.submit(() -> {
+                        limiter.acquire();
                         printer.print(element);
-
-                        try {
-                            Thread.sleep(Duration.of(1, ChronoUnit.SECONDS));
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
                     });
                 }
                 outputService.process();

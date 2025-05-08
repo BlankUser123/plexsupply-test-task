@@ -1,14 +1,15 @@
 package calculator;
 
+import java.math.BigInteger;
 import java.util.stream.IntStream;
 
 public class FactorialCalculator implements Calculator {
 
     @Override
-    public int calculate(int number) {
+    public BigInteger calculate(int number) {
         return IntStream
-                .range(1, number + 1)
-                .reduce((left, right) -> left * right)
-                .orElse(1);
+                .rangeClosed(1, number)
+                .mapToObj(BigInteger::valueOf)
+                .reduce(BigInteger.ONE, BigInteger::multiply);
     }
 }

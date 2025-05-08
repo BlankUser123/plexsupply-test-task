@@ -15,4 +15,9 @@ public class ConsolePrinter implements Printer {
 
         log.info("{} = {}", element, new FactorialCalculator().calculate((Integer) element));
     }
+
+    @Override
+    public void close() {
+
+    }
 }
