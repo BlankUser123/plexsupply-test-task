@@ -39,9 +39,7 @@ public class DataReader implements FileReader, Closeable {
 
             result = new Object[data.length];
 
-            for (int i = 0; i < data.length; i++) {
-                result[i] = data[i];
-            }
+            System.arraycopy(data, 0, result, 0, data.length);
 
             return result;
         } catch (IOException e) {
