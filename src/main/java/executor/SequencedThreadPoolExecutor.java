@@ -66,7 +66,7 @@ public class SequencedThreadPoolExecutor implements AutoCloseable {
             try {
                 thread.join();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
     }
