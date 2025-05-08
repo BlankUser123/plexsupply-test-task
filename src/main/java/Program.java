@@ -33,7 +33,7 @@ public class Program {
         try (SequencedThreadPoolExecutor outputService = new SequencedThreadPoolExecutor(threadCount)) {
 
             try {
-                Printer printer = new ConsolePrinter();
+                Printer printer = new FilePrinter();
 
                 for (Object element : futureData.get()) {
                     outputService.submit(() -> {
