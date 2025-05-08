@@ -10,7 +10,7 @@ import java.util.Objects;
 @Getter
 public class DataReader implements FileReader, Closeable {
 
-    public static String DATA = "input.txt";
+    public static String DATA = "/input.txt";
 
     private int[] data;
 
@@ -21,7 +21,8 @@ public class DataReader implements FileReader, Closeable {
     @Override
     public Object[] read() {
         Object[] result;
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(DataReader.class.getResourceAsStream(DATA))))) {
+        InputStream resource = DataReader.class.getResourceAsStream(DATA);
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(resource)))) {
             Object[] data = reader
                     .lines()
                     .map(line -> {
