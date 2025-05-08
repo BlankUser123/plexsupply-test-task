@@ -1,11 +1,9 @@
+import calculator.FactorialCalculator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FactorialCalculatorTest {
 

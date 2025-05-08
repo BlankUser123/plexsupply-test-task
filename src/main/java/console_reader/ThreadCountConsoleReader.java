@@ -1,4 +1,5 @@
-import java.io.IOException;
+package console_reader;
+
 import java.util.Scanner;
 
 public class ThreadCountConsoleReader implements ConsoleReader {

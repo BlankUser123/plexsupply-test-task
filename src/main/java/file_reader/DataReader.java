@@ -1,3 +1,5 @@
+package file_reader;
+
 import lombok.Getter;
 import lombok.Setter;
 

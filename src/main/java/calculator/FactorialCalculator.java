@@ -1,4 +1,5 @@
-import java.util.function.IntBinaryOperator;
+package calculator;
+
 import java.util.stream.IntStream;
 
 public class FactorialCalculator implements Calculator {

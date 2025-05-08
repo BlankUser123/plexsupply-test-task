@@ -1,3 +1,7 @@
+package printer;
+
+import calculator.FactorialCalculator;
+
 public class ConsolePrinter implements Printer {
 
     @Override
